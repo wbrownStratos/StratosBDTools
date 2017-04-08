@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="29444272645-djih9eabqk6dtcs0hd3jotjfmiiu5l6e.apps.googleusercontent.com">
+
+    <link rel="stylesheet" type="text/css" href="scss/global.css">
+    <title>Stratos BD Tools</title>
+
+    <!--External scripts -->
+    <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <!-- R2 Backups scripts -->
+    <script src="index.js"></script>
+
+</head>
+<body ng-app="BDTools">
+<div><span ng-include="'banner.html'"></span></div> <!--Banner eventually needs to be put into a partials file.  Need node partials module. -->
+<!-- Displays the contents of the routeProvider here -->
+<div class="ng-view"></div>
+</body>
+</html>

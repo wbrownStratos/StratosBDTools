@@ -6,27 +6,27 @@ var app = angular.module('BDTools', ['ngRoute']);
 
 		        $routeProvider
         			.when('/documents', {
-        				templateUrl: 'components/documents/documents.html',
+        				templateUrl: '/documents/documents.html',
         				controller: 'docsController'
         			})
         			.when('/FAQs', {
-        				templateUrl: 'components/FAQs/FAQs.html',
+        				templateUrl: '/FAQs/FAQs.html',
         				controller: 'FAQsController'
         			})
         			.when('/', {
-        				templateUrl: 'components/Intro/intro.html',
+        				templateUrl: '/intro/intro.html',
         				controller: 'introController'
         			})
         			.when('/login', {
-        				templateUrl: 'components/login/login.html',
+        				templateUrl: '/login/login.html',
         				controller: 'loginController'
         			})
         			.when('/plans', {
-        				templateUrl: 'components/plans/plans.html',
+        				templateUrl: '/plans/plans.html',
         				controller: 'plansController'
         			})
         			.when('/profiles', {
-        				templateUrl: 'components/profiles/profiles.html',
+        				templateUrl: '/profiles/profiles.html',
         				controller: 'profilesController'
         			})
         			.otherwise({
