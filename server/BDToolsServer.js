@@ -32,6 +32,13 @@ app.get('/BDTools', urlencodedParser, function(req, res) {
 
   });
 
+app.get('/options', urlencodedParser, function(req, res) {
+
+    console.log("Tools accessed!");
+    console.log(req);
+    res.send(config.linkedInOptions)
+  });
+
 ////===============PORT=================
 //
 var port = process.env.PORT || 5050; //select your port or let it pull from your .env file

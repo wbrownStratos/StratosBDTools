@@ -5,25 +5,25 @@ var app = angular.module('BDTools', ['ngRoute']);
             function($routeProvider) {
 
 		        $routeProvider
-        			.when('/documents', {
-        				templateUrl: '/documents/documents.html',
-        				controller: 'docsController'
+        			.when('/intro', {
+        				templateUrl: '/intro/intro.html',
+        				controller: 'introController'
         			})
         			.when('/FAQs', {
         				templateUrl: '/FAQs/FAQs.html',
         				controller: 'FAQsController'
         			})
         			.when('/', {
-        				templateUrl: '/intro/intro.html',
-        				controller: 'introController'
+        				templateUrl: '/login/login.html',
+        				controller: 'loginController'
         			})
         			.when('/login', {
         				templateUrl: '/login/login.html',
         				controller: 'loginController'
         			})
-        			.when('/plans', {
-        				templateUrl: '/plans/plans.html',
-        				controller: 'plansController'
+        			.when('/search', {
+        				templateUrl: '/searchEngine/searchEngine.html',
+        				controller: 'searchController'
         			})
         			.when('/profiles', {
         				templateUrl: '/profiles/profiles.html',
@@ -50,9 +50,9 @@ angular.module('BDTools')
 
 		};
 
-        $scope.goToPlans = function() {
+        $scope.goToSearch = function() {
 
-		$location.path("/plans");
+		$location.path("/search");
 
 		};
 
@@ -95,79 +95,6 @@ angular.module('BDTools')
           console.log('intro controller loaded');
 	}]);
 
-
-	angular.module('BDTools')
-		.controller('loginController', ['$scope', '$http', function($scope, $http) {
-
-
-
-          console.log('login controller loaded');
-
-          /* Fields */
-
-          $scope.username = 'please enter a username';
-          $scope.password = 'please enter a password';
-          $scope.accountBalance = null;
-          $scope.firstNameLastName = null;
-          $scope.loginSuccess = false;
-          //$scope.userDataPlan = null;
-
-
-         /* Methods */
-
-          $scope.submitLoginRequest = function() {
-
-              var loginTime = function() {
-
-                    function addZero(i) {
-                        if (i < 10) {
-                            i = "0" + i;
-                        }
-                        return i;
-                    }
-
-                  var time = new Date();
-                  var currentTime = time.getMonth() + 1 + '/' + time.getDate() + '/' + time.getFullYear() + ' @ ' +
-                                    addZero(time.getHours()) + ":" + addZero(time.getMinutes()) + ":" + addZero(time.getSeconds());
-
-                  return currentTime;
-              }
-
-              $http({
-
-                  method: 'POST',
-                  url: 'http://dev.BDTools:5000/authRequest',
-                  headers : { 'Content-Type' : 'application/json' },
-                  data: {
-
-                  "username" : $scope.authUsername,
-                  "password" : $scope.authPassword,
-                  "loginTime" : loginTime()
-
-                  }
-
-                    }).then(function successCallback(userProfile) {
-                                  $scope.loginSuccess = true;
-                                  console.log(userProfile);
-                                  $scope.accountBalance = userProfile.data.accountBalance;
-                                  $scope.firstName = userProfile.data.firstName;
-
-                      }, function errorCallback(error) {
-                        console.log(error);
-                      });
-
-          console.log(loginTime());
-
-          }
-
-	}]);
-
-
-	angular.module('BDTools')
-		.controller('plansController', ['$scope', function($scope) {
-
-          console.log('plans controller loaded');
-	}]);
 
 
 	angular.module('BDTools')

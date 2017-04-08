@@ -3,16 +3,16 @@
 // Do not add it to your Git repository.
 
 // ===== Tools API options ====//
-  var linkedInClientID = "86ynp1825qyafx",
-  linkedInResponseType = "code",
-  linkedInRedirectURI = "http://localhost:5050/callback",
+  var linkedInClientID = "client_id=86ynp1825qyafx",
+  linkedInResponseType = "response_type=code",
+  linkedInRedirectURI = "redirect_uri=http://localhost:3000/",
   mongodbPort = "27017",
   linkedInClientSecret = "sKQwr1yZ2iGpqzGz";
 
 var linkedInOptions = {
     host: 'www.linkedin.com',
     port: 443,
-    path: '/oauth/v2/authorization' + "?" + linkedInRedirectURI + "&" + linkedInClientID + "&" + linkedInRedirectURI,
+    path: '/oauth/v2/authorization' + '?' + linkedInResponseType + '&' + linkedInClientID + '&' + linkedInRedirectURI,
     method: 'GET',
     headers: {
         'Content-Type': 'application/json'

@@ -22,8 +22,8 @@ var app = angular.module('BDTools', ['ngRoute']);
         				controller: 'loginController'
         			})
         			.when('/plans', {
-        				templateUrl: '/plans/plans.html',
-        				controller: 'plansController'
+        				templateUrl: '/SearchEngine/SearchEngine.html',
+        				controller: 'searchController'
         			})
         			.when('/profiles', {
         				templateUrl: '/profiles/profiles.html',
@@ -96,12 +96,19 @@ angular.module('BDTools')
 	}]);
 
 
+
 	angular.module('BDTools')
-		.controller('loginController', ['$scope', '$http', function($scope, $http) {
+		.controller('profilesController', ['$scope', function($scope) {
+
+          console.log('profiles controller loaded');
+	}]);
+
+	angular.module('BDTools')
+		.controller('searchController', ['$scope', '$http', function($scope, $http) {
 
 
 
-          console.log('login controller loaded');
+          console.log('search controller loaded');
 
           /* Fields */
 
@@ -115,7 +122,7 @@ angular.module('BDTools')
 
          /* Methods */
 
-          $scope.submitLoginRequest = function() {
+          $scope.submitSearchRequest = function() {
 
               var loginTime = function() {
 
@@ -162,17 +169,4 @@ angular.module('BDTools')
 
 	}]);
 
-
-	angular.module('BDTools')
-		.controller('plansController', ['$scope', function($scope) {
-
-          console.log('plans controller loaded');
-	}]);
-
-
-	angular.module('BDTools')
-		.controller('profilesController', ['$scope', function($scope) {
-
-          console.log('profiles controller loaded');
-	}]);
 
