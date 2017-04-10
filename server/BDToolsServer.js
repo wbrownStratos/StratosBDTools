@@ -7,21 +7,39 @@ var express = require('express'),
     rest = require('./REST.js');
     var authCode = "";
     var config = require('./config.js');
+    var request = require('request');
 
 //===============ROUTES===============
 
-app.get('/callback', urlencodedParser, function(req, res) {
+app.get('/linkedIn', urlencodedParser, function(req, res) {
 
     console.log("call back accessed!");
     console.log(req.query.code);
     var authCode = req.query.code;
-   //set up POST request options
+
+    var options = { method: 'POST',
+      url: 'https://www.linkedin.com/uas/oauth2/accessToken',
+      headers:
+       { 'content-type': 'application/x-www-form-urlencoded',
+         },
+      form:
+       { grant_type: 'authorization_code',
+         code: authCode,
+         redirect_uri: 'http://localhost:5050/linkedIn',
+         client_id: '86ynp1825qyafx',
+         client_secret: 'sKQwr1yZ2iGpqzGz' } };
+
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+
+      console.log(body);
+    });
 
   });
 app.get('/BDTools', urlencodedParser, function(req, res) {
 
     console.log("Tools accessed!");
-    console.log(req);
+    console.log(req.body);
    //set up POST request options
     rest.getJSON(config.linkedInOptions,
         function(statusCode, result)
@@ -34,9 +52,9 @@ app.get('/BDTools', urlencodedParser, function(req, res) {
 
 app.get('/options', urlencodedParser, function(req, res) {
 
-    console.log("Tools accessed!");
-    console.log(req);
-    res.send(config.linkedInOptions)
+    console.log("Options accessed!");
+    console.log(req.body);
+    res.send(config.linkedInOptions);
   });
 
 ////===============PORT=================

@@ -1,18 +1,16 @@
 	angular.module('BDTools')
-		.controller('loginController', ['$scope', '$http', '$window', function($scope, $http, $window, $routeParams) {
+		.controller('loginController', ['$scope', '$http', '$window', function($scope, $http, $window) {
 
 
 
           console.log('login controller loaded');
         /* make sure user logged in to LinkedIn*/
 
-        console.log($routeParams);
           /* Fields */
 
          /* Config */
-
+// TODO: need to add ability to refresh code and send to back end.
           var options = {};
-          if ($routeParams.code === undefined) {
           $http({
 
               method: 'GET',
@@ -23,15 +21,12 @@
                     options = res.data;
 
                     console.log(options);
-                    $window.location.href('https://' + options.host + options.path);
-                    $scope.params = $routeParams;
-                    console.log($routeParams);
+                    $window.location.href('https://' + options.host + options.path); //TODO: need to
                   }, function errorCallback(error) {
                     console.log(error);
                   });
-          }
 
-          console.log($routeParams.code);
+          console.log('login request sent!');
 
          /*Linked In Sign in redirect */
 

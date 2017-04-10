@@ -7,9 +7,6 @@
 
           /* Fields */
 
-          $scope.username = 'please enter a username';
-          $scope.password = 'please enter a password';
-          $scope.accountBalance = null;
           $scope.firstNameLastName = null;
           $scope.loginSuccess = false;
           //$scope.userDataPlan = null;

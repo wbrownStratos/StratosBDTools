@@ -5,7 +5,7 @@
 // ===== Tools API options ====//
   var linkedInClientID = "client_id=86ynp1825qyafx",
   linkedInResponseType = "response_type=code",
-  linkedInRedirectURI = "redirect_uri=http://localhost:3000/",
+  linkedInRedirectURI = "redirect_uri=http://localhost:5050/linkedIn",
   mongodbPort = "27017",
   linkedInClientSecret = "sKQwr1yZ2iGpqzGz";
 
